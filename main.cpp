@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 //#include "Model/RubiksCube3dArray.cpp"
 //#include "Model/RubiksCube1dArray.cpp"
-//#include "Model/RubiksCubeBitboard.cpp"
+// #include "BitBoardRepresentation.cpp"
 #include "DFSSolver.h"
 #include "BFSSolver.h"
 #include "IDDFSSolver.h"
@@ -261,14 +261,15 @@ int main() {
 
 
 // CornerDBMaker Testing --------------------------------------------------------------------------
-    string fileName = "C:\\Users\\user\\CLionProjects\\rubiks-cube-solver\\Databases\\cornerDepth5V1.txt";
+    const string fileName = R"(C:\Users\srija\CLionProjects\RubiksCubeSolverV1\Databases\cornerDepth5V1.txt)";
+
 
 //    Code to create Corner Database
-//    CornerDBMaker dbMaker(fileName, 0x99);
-//    dbMaker.bfsAndStore();
+    // CornerDBMaker dbMaker(fileName, 0x99);
+    // dbMaker.bfsAndStore();
 
     RubiksCubeBitboard cube;
-    auto shuffleMoves = cube.randomShuffleCube(8);
+    auto shuffleMoves = cube.randomShuffleCube(13);
     cube.print();
     for (auto move: shuffleMoves) cout << cube.getMove(move) << " ";
     cout << "\n";
@@ -279,7 +280,5 @@ int main() {
     idaStarSolver.rubiksCube.print();
     for (auto move: moves) cout << cube.getMove(move) << " ";
     cout << "\n";
-
-
     return 0;
 }
